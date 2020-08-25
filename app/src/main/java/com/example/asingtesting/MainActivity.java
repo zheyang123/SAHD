@@ -13,6 +13,8 @@ public class MainActivity extends AppCompatActivity {
          int abd;
          abd = 12;
 String qsw = "123qdas";
+     //hello cannot
+        //haha
 
         String w = "123qdas";
     }
