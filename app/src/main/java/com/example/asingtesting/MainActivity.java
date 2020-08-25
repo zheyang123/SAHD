@@ -12,6 +12,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
          int abd;
          abd = 12;
-
+String qsw = "123qdas";
     }
 }
