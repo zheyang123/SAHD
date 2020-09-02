@@ -15,14 +15,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 private static final int Result_Image = 1;
     ImageView imageView;
     Button button;
+    int camera = R.drawable.camera;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         imageView = (ImageView) findViewById(R.id.image1);
-        button = (Button) findViewById(R.id.uploadimage);
+        button = (Button) findViewById(R.id.uploadImage);
         imageView.setOnClickListener(this);
         button.setOnClickListener(this);
+        imageView.setImageResource(camera);
     }
 
     @Override
