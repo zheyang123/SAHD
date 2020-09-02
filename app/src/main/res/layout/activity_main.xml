@@ -255,4 +255,16 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
+    <Button
+        android:id="@+id/Register"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Register"
+        app:layout_constraintBottom_toTopOf="@+id/Divider"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Company_Working_Date_Label"
+        android:gravity="center"
+        android:background="@android:color/holo_blue_bright"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
