@@ -7,120 +7,289 @@
     tools:context=".MainActivity">
 
     <TextView
-        android:id="@+id/addaproduct"
+        android:id="@+id/Company_Name_Label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="16dp"
-        android:text="Add a product:"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/Company_Name_Label"
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Company_Header" />
+
+    <TextView
+        android:id="@+id/Company_Header"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@android:color/black"
+        android:text="@string/company_header"
+        android:textAlignment="center"
+        android:textColor="@android:color/white"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/productNameLabel"
-        android:layout_width="104dp"
-        android:layout_height="29dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="32dp"
-        android:text="Product Name:"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/addaproduct" />
-
     <EditText
-        android:id="@+id/product_name"
-        android:layout_width="210dp"
+        android:id="@+id/company_name_txt"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="60dp"
-        android:ems="12"
-        android:hint="Add a Name Here"
+        android:layout_marginStart="10dp"
+        android:autofillHints=""
+        android:ems="10"
+        android:hint="@string/Company_Name_Hint"
         android:inputType="textPersonName"
-        app:layout_constraintStart_toEndOf="@+id/productNameLabel"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintBaseline_toBaselineOf="@+id/Company_Name_Label"
+        app:layout_constraintStart_toEndOf="@+id/Company_Name_Label" />
 
     <TextView
-        android:id="@+id/productPriceLabel"
+        android:id="@+id/Company_Address_Label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="28dp"
-        android:text="Price:"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/Company_Address_Label"
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/productNameLabel" />
+        app:layout_constraintTop_toBottomOf="@+id/Company_Name_Label" />
+
+    <TextView
+        android:id="@+id/Company_Poscode_Label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/Company_Poscode_Label"
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Company_Address_Label" />
+
+    <TextView
+        android:id="@+id/Company_Type_Label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/Company_Type_Label"
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Company_Poscode_Label" />
+
+    <TextView
+        android:id="@+id/Company_Email_Label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/Company_Email_Label"
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Company_Type_Label" />
 
     <EditText
-        android:id="@+id/product_price"
+        android:id="@+id/company_address_txt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginLeft="32dp"
-        android:layout_marginTop="8dp"
-        android:ems="12"
-        android:hint="RM0.00"
+        android:layout_marginStart="10dp"
+        android:ems="10"
+        android:hint="@string/Company_Address_txt"
+        android:inputType="textPostalAddress"
+        app:layout_constraintBaseline_toBaselineOf="@+id/Company_Address_Label"
+        app:layout_constraintStart_toEndOf="@+id/Company_Address_Label"
+        android:autofillHints="" />
+
+    <EditText
+        android:id="@+id/poscode_txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:ems="10"
+        android:hint="@string/Poscode_Hint"
+        android:inputType="number"
+        app:layout_constraintBaseline_toBaselineOf="@+id/Company_Poscode_Label"
+        app:layout_constraintStart_toEndOf="@+id/Company_Poscode_Label"
+        android:autofillHints="" />
+
+    <EditText
+        android:id="@+id/company_type_txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:ems="10"
+        android:hint="@string/Company_Type_Hint"
         android:inputType="textPersonName"
-        app:layout_constraintStart_toEndOf="@+id/productPriceLabel"
-        app:layout_constraintTop_toBottomOf="@+id/product_name" />
+        app:layout_constraintBaseline_toBaselineOf="@+id/Company_Type_Label"
+        app:layout_constraintStart_toEndOf="@+id/Company_Type_Label"
+        android:autofillHints="" />
 
     <TextView
-        android:id="@+id/productDescLabel"
+        android:id="@+id/Company_Oprating_Hour_Label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="32dp"
-        android:text="Description"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/Company_Operating_Hour_Label"
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/productPriceLabel" />
+        app:layout_constraintTop_toBottomOf="@+id/Company_Email_Label" />
+
+    <TextView
+        android:id="@+id/Company_Working_Date_Label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/Company_Working_Date_Label"
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Company_Oprating_Hour_Label" />
 
     <EditText
-        android:id="@+id/product_desc"
+        android:id="@+id/company_Email_txt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="8dp"
-        android:ems="12"
-        android:hint="Add Description"
-        android:inputType="textCapSentences|textMultiLine"
-        app:layout_constraintStart_toEndOf="@+id/productDescLabel"
-        app:layout_constraintTop_toBottomOf="@+id/product_price" />
+        android:autofillHints=""
+        android:ems="10"
+        android:hint="@string/Company_Email_Hint"
+        android:inputType="textEmailAddress"
+        app:layout_constraintBaseline_toBaselineOf="@+id/Company_Email_Label"
+        app:layout_constraintStart_toEndOf="@+id/Company_Email_Label" />
+
+    <EditText
+        android:id="@+id/Company_Operating_Hour_txt"
+        android:layout_width="215dp"
+        android:layout_height="50dp"
+        android:ems="10"
+        android:hint="@string/Company_Operating_Hour_HInt"
+        android:inputType="phone|time"
+        app:layout_constraintBaseline_toBaselineOf="@+id/Company_Oprating_Hour_Label"
+        app:layout_constraintStart_toEndOf="@+id/Company_Oprating_Hour_Label"
+        android:autofillHints="" />
+
+    <EditText
+        android:id="@+id/company_working_date_txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="@string/Company_Working_Date_Hint"
+        android:inputType="date|number|datetime|phone|time"
+        app:layout_constraintBaseline_toBaselineOf="@+id/Company_Working_Date_Label"
+        app:layout_constraintStart_toEndOf="@+id/Company_Working_Date_Label"
+        android:autofillHints="" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="67dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="1dp"
+        android:text="@string/myProfileText"
+        android:textSize="8sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="67dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="1dp"
+        android:text="@string/orderHistoryText"
+        android:textSize="8sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/button" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="80dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="1dp"
+        android:text="@string/registerForBuinessText"
+        android:textSize="8sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/button2" />
+
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="67dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="1dp"
+        android:text="@string/aboutUsText"
+        android:textSize="8sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/button3" />
+
+    <Button
+        android:id="@+id/button5"
+        android:layout_width="67dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="1dp"
+        android:text="@string/customerServicesText"
+        android:textSize="8sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/button4" />
+
+    <Button
+        android:id="@+id/button6"
+        android:layout_width="57dp"
+        android:layout_height="40dp"
+        android:text="@string/homeText"
+        android:textSize="8sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/button5" />
+
+    <TextView
+        android:id="@+id/Divider"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/Divider"
+        android:textColor="@android:color/black"
+        android:textStyle="bold|italic"
+        app:layout_constraintBottom_toTopOf="@+id/button3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/Register"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="168dp"
+        android:background="@android:color/holo_blue_bright"
+        android:gravity="center"
+        android:text="@string/Company_Register"
+        app:layout_constraintBottom_toTopOf="@+id/Divider"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Company_Working_Date_Label"
+        app:layout_constraintVertical_bias="0.912" />
+
+    <ImageView
+        android:id="@+id/Company_Logo"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_marginTop="1dp"
+        android:layout_marginEnd="1dp"
+        app:layout_constraintBottom_toTopOf="@+id/Register"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.995"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/company_working_date_txt"
+        app:layout_constraintVertical_bias="0.0"
+        tools:srcCompat="@tools:sample/avatars" />
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="32dp"
-        android:text="Add an image"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/productDescLabel" />
-
-    <ImageView
-        android:id="@+id/addproductimage"
-        android:layout_width="214dp"
-        android:layout_height="195dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="16dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
-        app:srcCompat="@android:drawable/ic_input_add" />
-
-    <Button
-        android:id="@+id/button"
-        android:layout_width="88dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:text="Upload"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent" />
-
+        android:layout_marginTop="60dp"
+        android:layout_marginEnd="20dp"
+        android:text="@string/Insert_Photo"
+        app:layout_constraintEnd_toStartOf="@+id/Company_Logo"
+        app:layout_constraintTop_toBottomOf="@+id/Company_Working_Date_Label" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
