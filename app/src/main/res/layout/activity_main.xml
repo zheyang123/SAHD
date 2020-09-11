@@ -80,12 +80,12 @@
         app:layout_constraintTop_toBottomOf="@+id/Company_Poscode_Label" />
 
     <TextView
-        android:id="@+id/Company_Phone_Label"
+        android:id="@+id/Company_Email_Label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="20dp"
-        android:text="@string/Company_Phone_Label"
+        android:text="@string/Company_Email_Label"
         android:textColor="@android:color/black"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
@@ -137,7 +137,7 @@
         android:textColor="@android:color/black"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Company_Phone_Label" />
+        app:layout_constraintTop_toBottomOf="@+id/Company_Email_Label" />
 
     <TextView
         android:id="@+id/Company_Working_Date_Label"
@@ -152,15 +152,15 @@
         app:layout_constraintTop_toBottomOf="@+id/Company_Oprating_Hour_Label" />
 
     <EditText
-        android:id="@+id/company_phone_txt"
+        android:id="@+id/company_Email_txt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:autofillHints=""
         android:ems="10"
-        android:hint="@string/Company_Phone_Hint"
-        android:inputType="phone"
-        app:layout_constraintBaseline_toBaselineOf="@+id/Company_Phone_Label"
-        app:layout_constraintStart_toEndOf="@+id/Company_Phone_Label"
-        android:autofillHints="" />
+        android:hint="@string/Company_Email_Hint"
+        android:inputType="textEmailAddress"
+        app:layout_constraintBaseline_toBaselineOf="@+id/Company_Email_Label"
+        app:layout_constraintStart_toEndOf="@+id/Company_Email_Label" />
 
     <EditText
         android:id="@+id/Company_Operating_Hour_txt"
@@ -259,12 +259,37 @@
         android:id="@+id/Register"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Register"
+        android:layout_marginEnd="168dp"
+        android:background="@android:color/holo_blue_bright"
+        android:gravity="center"
+        android:text="@string/Company_Register"
         app:layout_constraintBottom_toTopOf="@+id/Divider"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Company_Working_Date_Label"
-        android:gravity="center"
-        android:background="@android:color/holo_blue_bright"/>
+        app:layout_constraintVertical_bias="0.912" />
+
+    <ImageView
+        android:id="@+id/Company_Logo"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_marginTop="1dp"
+        android:layout_marginEnd="1dp"
+        app:layout_constraintBottom_toTopOf="@+id/Register"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.995"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/company_working_date_txt"
+        app:layout_constraintVertical_bias="0.0"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:layout_marginEnd="20dp"
+        android:text="@string/Insert_Photo"
+        app:layout_constraintEnd_toStartOf="@+id/Company_Logo"
+        app:layout_constraintTop_toBottomOf="@+id/Company_Working_Date_Label" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

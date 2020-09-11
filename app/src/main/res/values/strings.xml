@@ -9,10 +9,10 @@
     <string name="Poscode_Hint">e.g.53300</string>
     <string name="Company_Type_Label">Company Type :</string>
     <string name="Company_Type_Hint">e.g.comestic</string>
-    <string name="Company_Phone_Label">Company Phone :</string>
+    <string name="Company_Email_Label">Company Email :</string>
     <string name="Company_Operating_Hour_Label">Company Operating Hour :</string>
     <string name="Company_Working_Date_Label">Company Working Date :</string>
-    <string name="Company_Phone_Hint">e.g.0186451139</string>
+    <string name="Company_Email_Hint">e.g.limahkau@gmail.com</string>
     <string name="Company_Operating_Hour_HInt">e.g.8.00 a.m.~8.00 p.m.</string>
     <string name="Company_Working_Date_Hint">e.g.monday~friday</string>
     <string name="myProfileText">my profile</string>
@@ -23,8 +23,10 @@
     <string name="homeText">home</string>
     <string name="Divider">___________________________________________________________________</string>
     <string name="invalid_name">Please Enter Valid Name</string>
-    <string name="invalid_phone_number">Please Enter Valid Phone Number</string>
+    <string name="invalid_email">Please Enter Valid Email</string>
     <string name="invalid_Email_Address">Please Enter Valid Email Address</string>
     <string name="invalid_poscode">Please Enter Valid Poscode</string>
     <string name="invalid_company_type">Please Enter Valid Company Type</string>
+    <string name="Insert_Photo">Please Insert Your Photo</string>
+    <string name="Company_Register">Register</string>
 </resources>
