@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "544022132537",
+    "firebase_url": "https://asingtesting.firebaseio.com",
+    "project_id": "asingtesting",
+    "storage_bucket": "asingtesting.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:544022132537:android:e0f62e8b63927e78099ae8",
+        "android_client_info": {
+          "package_name": "com.example.asingtesting"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "544022132537-0fhtg6smklv18g0jhkjl4mmmesovm371.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.asingtesting",
+            "certificate_hash": "7e522ed99a40867e0ff38bdaffc21a5fa00ce997"
+          }
+        },
+        {
+          "client_id": "544022132537-licqhtce9a2ge7nm2a0sk973db5dout9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC-E7V6lCkNHakOT3Mao06hhnRtTkEF2C8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "544022132537-licqhtce9a2ge7nm2a0sk973db5dout9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

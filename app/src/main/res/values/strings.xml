@@ -1,3 +1,19 @@
 <resources>
     <string name="app_name">asingtesting</string>
+    <string name="myProfileText">My Profile</string>
+    <string name="orderHistoryText">Order History</string>
+    <string name="registerForBusinessText">Register for Business</string>
+    <string name="aboutUsText">About us</string>
+    <string name="customerServicesText">Customer Services</string>
+    <string name="homeText">Home</string>
+    <string name="phoneNumber">Phone Number</string>
+    <string name="confirmPassword">Confirm Password</string>
+    <string name="register">Register</string>
+    <string name="login">Login</string>
+    <string name="password">Password</string>
+    <string name="verification_code">Verification Code</string>
+    <string name="Email">Email</string>
+
+
+
 </resources>
