@@ -10,15 +10,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-         int abd;
-         abd = 12;
-String qsw = "123qdas";
-     //hello cannot
-        //haha
 
-        String w = "123qdas";
-        //test2020
-        //lolololololol
-        //Ch'en: moumantai WahDanHoh2012
-    }
+
+}
 }
