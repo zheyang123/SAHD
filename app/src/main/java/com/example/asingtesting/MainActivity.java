@@ -1,8 +1,10 @@
 package com.example.asingtesting;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -17,8 +19,15 @@ import android.widget.Toast;
 import com.basgeekball.awesomevalidation.AwesomeValidation;
 import com.basgeekball.awesomevalidation.ValidationStyle;
 import com.basgeekball.awesomevalidation.utility.RegexTemplate;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.OnProgressListener;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
 
 import java.util.regex.Pattern;
 
@@ -30,6 +39,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     AwesomeValidation awesomeValidation;
     ImageView companyLogo ;
     private static final int image = 1;
+    Uri uri;
+    StorageReference ImgRef;
+    FirebaseStorage ImgStorage;
+    String companyname = "defualt";
 
     @Override
     public void onClick(View view) {
@@ -48,9 +61,39 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == image && resultCode == RESULT_OK && data != null)
         {
-            Uri uri = data.getData();
+            uri = data.getData();
             companyLogo.setImageURI(uri);
         }
+    }
+
+    private void uploadImg() {
+        final ProgressDialog PD = new ProgressDialog(this);
+        PD.setTitle("Uploading Image...");
+        StorageReference riversRef = ImgRef.child(companyname);
+        PD.show();
+
+        riversRef.putFile(uri)
+                .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                    @Override
+                    public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                        PD.dismiss();
+                        Snackbar.make(findViewById(R.id.Register), "Image Uploaded Successfully", Snackbar.LENGTH_LONG).show();
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception exception) {
+                        PD.dismiss();
+                        Toast.makeText(getApplicationContext(), "Image Upload Failed", Toast.LENGTH_LONG).show();
+                    }
+                })
+                .addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
+                    @Override
+                    public void onProgress(UploadTask.TaskSnapshot taskSnapshot) {
+                        double progressPercentage = (100.00 * taskSnapshot.getBytesTransferred() / taskSnapshot.getTotalByteCount());
+                        PD.setMessage("Progress: " + (int) progressPercentage + "%" );
+                    }
+                });
     }
 
     @Override
@@ -58,6 +101,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         int img = R.drawable.camara;
+        ImgStorage = FirebaseStorage.getInstance();
+        ImgRef = ImgStorage.getReference("Company List");
 
 
         //Assign Variable
@@ -90,30 +135,37 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String companyname,companyaddress,companytype,companyemail,companyoperatinghour,companyworkingdate;
-                int companyposcode;
-                companyname = companyNameTxt.getText().toString();
-                companyaddress = companyAddressTxt.getText().toString();
-                companytype = companyTypeTxt.getText().toString();
-                companyemail = companyEmailTxt.getText().toString();
-                companyoperatinghour = CompanyOperatingHourTxt.getText().toString();
-                companyworkingdate = companyWorkingDateTxt.getText().toString();
-                companyposcode = Integer.parseInt(poscodeTxt.getText().toString());
+                String companyaddress,companytype,companyemail,companyoperatinghour,companyworkingdate;
                 //check Validation
                 if (awesomeValidation.validate()){
+                    int companyposcode;
+                    companyname = companyNameTxt.getText().toString();
+                    companyaddress = companyAddressTxt.getText().toString();
+                    companytype = companyTypeTxt.getText().toString();
+                    companyemail = companyEmailTxt.getText().toString();
+                    companyoperatinghour = CompanyOperatingHourTxt.getText().toString();
+                    companyworkingdate = companyWorkingDateTxt.getText().toString();
+                    companyposcode = Integer.parseInt(poscodeTxt.getText().toString());
+                    uploadImg();
+                    FirebaseDatabase database = FirebaseDatabase.getInstance();
+                    DatabaseReference myRef = database.getReference("company Details");
+                    companyRegisterClass companyRegister = new companyRegisterClass();
+                    companyRegister.companyRegister(companyname,companyaddress,companytype,companyemail,companyoperatinghour,companyworkingdate,companyposcode);
+                    DatabaseReference newRef = myRef.push();
+                    newRef.setValue(companyRegister);
                     Toast.makeText(getApplicationContext(),"Register Successfull",Toast.LENGTH_SHORT).show();
                 }else {
                     Toast.makeText(getApplicationContext(),"Register Failed",Toast.LENGTH_SHORT).show();
                 }
-                FirebaseDatabase database = FirebaseDatabase.getInstance();
-                DatabaseReference myRef = database.getReference("company Details");
-                companyRegisterClass companyRegister = new companyRegisterClass();
-                companyRegister.companyRegister(companyname,companyaddress,companytype,companyemail,companyoperatinghour,companyworkingdate,companyposcode);
-                DatabaseReference newRef = myRef.push();
-                newRef.setValue(companyRegister);
+                gotomainpage();
             }
         });
         companyLogo.setOnClickListener(this);
 
+    }
+    void gotomainpage()
+    {
+        Intent intent = new Intent(this,Company_Main_Page.class);
+        startActivity(intent);
     }
 }
