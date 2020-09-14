@@ -62,4 +62,9 @@ public class CompanyListRecycleView extends RecyclerView.Adapter<CompanyListRecy
                 myImg = itemView.findViewById(R.id.companyimage);
             }
         }
+        public void filterList(ArrayList<companyRegisterClass> filterList)
+        {
+            CompanyRegisterArray = filterList;
+            notifyDataSetChanged();
+        }
     }

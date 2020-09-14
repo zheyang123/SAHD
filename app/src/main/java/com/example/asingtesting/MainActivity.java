@@ -9,10 +9,13 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Filter;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -21,6 +24,7 @@ import com.basgeekball.awesomevalidation.ValidationStyle;
 import com.basgeekball.awesomevalidation.utility.RegexTemplate;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -29,6 +33,8 @@ import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
+import java.net.URI;
+import java.util.ArrayList;
 import java.util.regex.Pattern;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
@@ -43,6 +49,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     StorageReference ImgRef;
     FirebaseStorage ImgStorage;
     String companyname = "defualt";
+    String url;
+    String companyaddress,companytype,companyemail,companyoperatinghour,companyworkingdate;
+    companyRegisterClass companyRegister;
+    DatabaseReference myRef;
+    int companyposcode;
 
     @Override
     public void onClick(View view) {
@@ -78,6 +89,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                         PD.dismiss();
                         Snackbar.make(findViewById(R.id.Register), "Image Uploaded Successfully", Snackbar.LENGTH_LONG).show();
+
                     }
                 })
                 .addOnFailureListener(new OnFailureListener() {
@@ -103,6 +115,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         int img = R.drawable.camara;
         ImgStorage = FirebaseStorage.getInstance();
         ImgRef = ImgStorage.getReference("Company List");
+        //Intent intent = new Intent(this,Company_Main_Page.class);
+        //startActivity(intent);
 
 
         //Assign Variable
@@ -135,10 +149,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String companyaddress,companytype,companyemail,companyoperatinghour,companyworkingdate;
                 //check Validation
                 if (awesomeValidation.validate()){
-                    int companyposcode;
                     companyname = companyNameTxt.getText().toString();
                     companyaddress = companyAddressTxt.getText().toString();
                     companytype = companyTypeTxt.getText().toString();
@@ -148,11 +160,25 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     companyposcode = Integer.parseInt(poscodeTxt.getText().toString());
                     uploadImg();
                     FirebaseDatabase database = FirebaseDatabase.getInstance();
-                    DatabaseReference myRef = database.getReference("company Details");
-                    companyRegisterClass companyRegister = new companyRegisterClass();
-                    companyRegister.companyRegister(companyname,companyaddress,companytype,companyemail,companyoperatinghour,companyworkingdate,companyposcode);
-                    DatabaseReference newRef = myRef.push();
-                    newRef.setValue(companyRegister);
+                    myRef = database.getReference("company Details");
+                    companyRegister = new companyRegisterClass();
+                    ImgRef.child(companyname).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                        @Override
+                        public void onSuccess(Uri uri) {
+                            Task<Uri> downloaduri = ImgRef.child(companyname).getDownloadUrl();
+                            Toast.makeText(getApplicationContext(), "get URL successfull", Toast.LENGTH_LONG).show();
+                            Toast.makeText(getApplicationContext(), downloaduri.toString(), Toast.LENGTH_LONG).show();
+                            url = downloaduri.toString();
+                            companyRegister.companyRegister(companyname,companyaddress,companytype,companyemail,companyoperatinghour,companyworkingdate,companyposcode,url);
+                            DatabaseReference newRef = myRef.push();
+                            newRef.setValue(companyRegister);
+                        }
+                    }).addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception exception) {
+                            Toast.makeText(getApplicationContext(), "get URL failed", Toast.LENGTH_LONG).show();
+                        }
+                    });
                     Toast.makeText(getApplicationContext(),"Register Successfull",Toast.LENGTH_SHORT).show();
                 }else {
                     Toast.makeText(getApplicationContext(),"Register Failed",Toast.LENGTH_SHORT).show();
@@ -163,6 +189,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         companyLogo.setOnClickListener(this);
 
     }
+
     void gotomainpage()
     {
         Intent intent = new Intent(this,Company_Main_Page.class);

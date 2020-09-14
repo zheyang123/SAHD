@@ -29,13 +29,15 @@
 
     <TextView
         android:id="@+id/Search_label"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
+        android:layout_width="46dp"
+        android:layout_height="49dp"
+        android:layout_marginTop="16dp"
         android:background="@android:color/white"
+        android:gravity="center"
         android:text="Search"
-        app:layout_constraintBaseline_toBaselineOf="@+id/search_Bar"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintBottom_toBottomOf="@+id/search_Bar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/Login_button"
@@ -48,6 +50,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/search_Bar"
         app:layout_constraintTop_toTopOf="parent" />
+
     <Button
         android:id="@+id/button"
         android:layout_width="67dp"
