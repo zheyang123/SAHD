@@ -29,4 +29,12 @@
     <string name="invalid_company_type">Please Enter Valid Company Type</string>
     <string name="Insert_Photo">Please Insert Your Photo</string>
     <string name="Company_Register">Register</string>
+    <string name="phoneNumber">Phone Number</string>
+    <string name="confirmPassword">Confirm Password</string>
+    <string name="register">Register</string>
+    <string name="login">Login</string>
+    <string name="password">Password</string>
+    <string name="verification_code">Verification Code</string>
+    <string name="Email">Email</string>
+
 </resources>
