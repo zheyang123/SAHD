@@ -22,7 +22,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.regex.Pattern;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener{
+public class ProductDescMain extends AppCompatActivity implements View.OnClickListener{
     //Initialize Variable
     EditText companyNameTxt,companyAddressTxt,poscodeTxt,companyTypeTxt,companyEmailTxt,
             CompanyOperatingHourTxt,companyWorkingDateTxt;
@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         switch (view.getId())
         { case R.id.Company_Logo:
             Intent intent = new Intent(
-              Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI
+                    Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI
             );
             startActivityForResult(intent,image);
             break;}
@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == image && resultCode == RESULT_OK && data != null)
         {
-            Uri uri = data.getData();
+           Uri uri = data.getData();
             companyLogo.setImageURI(uri);
         }
     }
@@ -56,10 +56,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_product_desc_main);
         int img = R.drawable.camara;
-        Intent intent=new Intent(this,Add2Cart.class);
-        startActivity(intent);
+        /*Intent intent=new Intent(this,Add2Cart.class);
+        startActivity(intent); */
 
 
         //Assign Variable

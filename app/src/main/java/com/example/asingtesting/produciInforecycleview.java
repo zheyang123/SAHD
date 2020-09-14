@@ -5,15 +5,18 @@ import android.media.Image;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.List;
+
 
 public class produciInforecycleview extends RecyclerView.Adapter<produciInforecycleview.MyViewHolder> {
 
-        String data1[];
+        String data1[], data2[];
         Context context;
 
         public produciInforecycleview (Context ct, String s1[]){
@@ -43,13 +46,14 @@ public class produciInforecycleview extends RecyclerView.Adapter<produciInforecy
         public class MyViewHolder extends RecyclerView.ViewHolder {
 
             TextView myText1;
+            EditText nameEditText;
 
             public MyViewHolder(@NonNull View itemView) {
                 super(itemView);
                 myText1 = itemView.findViewById(R.id.product_name);
 
-
-
             }
         }
+
+
 }
