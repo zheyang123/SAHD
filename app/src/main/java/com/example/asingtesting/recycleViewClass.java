@@ -1,17 +1,16 @@
 package com.example.asingtesting;
 
-
-
-
-
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+
 
 import java.util.List;
 //public class recycleView extends FirebaseRecyclerAdapter<historyDetails,recycleView.MyViewHolder> {
@@ -45,7 +44,6 @@ public class recycleViewClass extends RecyclerView.Adapter<recycleViewClass.MyVi
         // holder.myImage.setImageResource(images[position]);
 
     }
-
     //  @Override
     //   protected void onBindViewHolder(@NonNull MyViewHolder holder, int position, @NonNull historyDetails model) {
     //    holder.myText1.setText(historyDetailsList.get(position).getCompanyName());
@@ -66,9 +64,9 @@ public class recycleViewClass extends RecyclerView.Adapter<recycleViewClass.MyVi
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
-            myText1 = itemView.findViewById(R.id.companyname);
-            myText2 = itemView.findViewById(R.id.date);
-            myText3 = itemView.findViewById(R.id.totalprice);
+            myText1 = itemView.findViewById(R.id.historycomName);
+            myText2 = itemView.findViewById(R.id.orderDate);
+            myText3 = itemView.findViewById(R.id.price);
             // myImage = itemView.findViewById(R.id.imageView);
 
 

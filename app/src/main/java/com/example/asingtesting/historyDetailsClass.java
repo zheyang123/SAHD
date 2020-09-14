@@ -6,18 +6,19 @@ import java.util.Calendar;
 import java.util.Date;
 
 public class historyDetailsClass {
-    double Totalprice = 0.00;
-    Date orderDate = Calendar.getInstance().getTime();
+    private double totalprice = 0.00;
+    private Date orderDate = Calendar.getInstance().getTime();
     String companyName;
 
     void historyDetails(double totalprice , Date orderDate, String companyName){
-        totalprice = this.Totalprice;
-        orderDate = this.orderDate;
-        companyName = this.companyName;
+        this.totalprice= totalprice ;
+       this.orderDate = orderDate;
+        this.companyName =companyName;
+
     }
 
     public double getTotalprice() {
-        return Totalprice;
+        return totalprice;
     }
 
     public Date getOrderDate() {
