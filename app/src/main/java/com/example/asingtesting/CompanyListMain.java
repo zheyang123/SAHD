@@ -9,13 +9,10 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Filter;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -24,7 +21,6 @@ import com.basgeekball.awesomevalidation.ValidationStyle;
 import com.basgeekball.awesomevalidation.utility.RegexTemplate;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.gms.tasks.Task;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -33,11 +29,7 @@ import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
-import java.net.URI;
-import java.util.ArrayList;
-import java.util.regex.Pattern;
-
-public class MainActivity extends AppCompatActivity implements View.OnClickListener{
+public class CompanyListMain extends AppCompatActivity implements View.OnClickListener{
     //Initialize Variable
     EditText companyNameTxt,companyAddressTxt,poscodeTxt,companyTypeTxt,companyEmailTxt,
             CompanyOperatingHourTxt,companyWorkingDateTxt;
@@ -60,7 +52,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         switch (view.getId())
         { case R.id.Company_Logo:
             Intent intent = new Intent(
-              Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI
+                    Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI
             );
             startActivityForResult(intent,image);
             break;}
@@ -126,12 +118,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_company_list_main);
         int img = R.drawable.camara;
         ImgStorage = FirebaseStorage.getInstance();
         ImgRef = ImgStorage.getReference("Company List");
-        Intent intent = new Intent(this,CompanyListMain.class);
-        startActivity(intent);
+
 
 
         //Assign Variable
@@ -181,16 +172,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }else {
                     Toast.makeText(getApplicationContext(),"Register Failed",Toast.LENGTH_SHORT).show();
                 }
-                gotomainpage();
             }
         });
         companyLogo.setOnClickListener(this);
 
     }
 
-    void gotomainpage()
-    {
-        Intent intent = new Intent(this,Company_Main_Page.class);
-        startActivity(intent);
-    }
+
 }

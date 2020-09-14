@@ -2,8 +2,10 @@ package com.example.asingtesting;
 
 import android.content.Context;
 
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.view.LayoutInflater;
@@ -17,6 +19,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 
 import com.google.common.primitives.Bytes;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -39,10 +42,20 @@ public class CompanyListRecycleView extends RecyclerView.Adapter<CompanyListRecy
         }
 
         @Override
-        public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
+        public void onBindViewHolder(@NonNull MyViewHolder holder, final int position) {
             holder.myText1.setText(CompanyRegisterArray.get(position).getCompany_name());
             holder.myText2.setText(CompanyRegisterArray.get(position).getCompany_address());
-            holder.myImg.setImageBitmap(bitmaps.get(position));
+            Picasso.get().load(CompanyRegisterArray.get(position).geturl()).into(holder.myImg);
+            holder.mainLayout.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(context,SecondActivity.class);
+                    intent.putExtra("CompanyRegisterArray",CompanyRegisterArray.get(position).getCompany_name());
+                    intent.putExtra("url",CompanyRegisterArray.get(position).geturl());
+                    //intent.putExtra("MyImg",CompanyRegisterArray.get(position).geturl());
+                    context.startActivity(intent);
+                }
+            });
         }
 
         @Override
@@ -54,12 +67,14 @@ public class CompanyListRecycleView extends RecyclerView.Adapter<CompanyListRecy
 
             TextView myText1, myText2;
             ImageView myImg;
+            ConstraintLayout mainLayout;
 
             public MyViewHolder(@NonNull View itemView) {
                 super(itemView);
                 myText1 = itemView.findViewById(R.id.companyNameLabel);
                 myText2 = itemView.findViewById(R.id.companyAddressLabel);
                 myImg = itemView.findViewById(R.id.companyimage);
+                mainLayout = itemView.findViewById(R.id.mainLayout);
             }
         }
         public void filterList(ArrayList<companyRegisterClass> filterList)

@@ -86,7 +86,7 @@ public class Company_Main_Page extends AppCompatActivity {
                         }
                     });
                 }
-                //CompanyrecyclerView();
+                CompanyrecyclerView();
             }
             @Override
             public void onCancelled(DatabaseError error) {
