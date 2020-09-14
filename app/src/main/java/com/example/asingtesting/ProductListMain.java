@@ -27,16 +27,16 @@ import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
-private static final int Result_Image = 1;
-Uri selected_image;
-String image_name = "i_name";
-String product_name;
-String url;
-String companyName = "watson";
-double price = 200.00;
-private FirebaseStorage storage;
-private StorageReference storageReference;
+public class ProductListMain extends AppCompatActivity implements View.OnClickListener {
+    private static final int Result_Image = 1;
+    Uri selected_image;
+    String image_name = "i_name";
+    String product_name;
+    String url;
+    String companyName = "watson";
+    double price = 200.00;
+    private FirebaseStorage storage;
+    private StorageReference storageReference;
 
     ImageView imageView;
     Button button;
@@ -44,9 +44,9 @@ private StorageReference storageReference;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        Intent intent = new Intent(this,ProductListMain.class);
-        startActivity(intent);
+        setContentView(R.layout.activity_product_list_main);
+        //Intent intent = new Intent(this,display_product_list.class);
+        //startActivity(intent);
         imageView = (ImageView) findViewById(R.id.image1);
         button = (Button) findViewById(R.id.uploadImage);
         imageView.setOnClickListener(this);

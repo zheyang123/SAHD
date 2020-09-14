@@ -12,10 +12,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".display_product_list"
-            android:parentActivityName=".product_mini_layout"
-            android:label=""/>
-        <activity android:name= ".product_mini_layout"/>
+        <activity android:name=".ProductListMain"></activity>
+        <activity
+            android:name=".display_product_list"
+            android:label=""
+            android:parentActivityName=".product_mini_layout" />
+        <activity android:name=".product_mini_layout" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
