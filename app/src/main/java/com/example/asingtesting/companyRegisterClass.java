@@ -17,6 +17,19 @@ public class companyRegisterClass{
         this.company_poscode = companyPoscode;
         this.url = url;
     }
+    void companyRegister(String companyName,String companyAddress,String companyType,
+                         String companyEmail, String companyOperatingHour,
+                         String companyWorkingDate, int companyPoscode)
+    {
+        this.company_name = companyName;
+        this.company_address = companyAddress;
+        this.company_type = companyType;
+        this.company_email = companyEmail;
+        this.company_operating_hour = companyOperatingHour;
+        this.company_working_date = companyWorkingDate;
+        this.company_poscode = companyPoscode;
+        this.url = "";
+    }
     public int getCompany_poscode() {return company_poscode;}
     public  String getCompany_name() {return company_name;}
     public  String getCompany_address() {return company_address;}

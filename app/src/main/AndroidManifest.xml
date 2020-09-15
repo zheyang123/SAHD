@@ -18,6 +18,9 @@
         <activity android:name=".SecondActivity"></activity>
         <activity android:name=".historymain"></activity>
         <activity android:name=".orderdetails" />
+        <activity android:name=".ProductDescMain"></activity>
+        <activity android:name=".Add2Cart" />
+        <activity android:name=".ProductInfo" />
         <activity
             android:name=".display_product_list"
             android:label=""
