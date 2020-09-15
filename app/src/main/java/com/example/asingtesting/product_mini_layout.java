@@ -27,12 +27,12 @@ public class product_mini_layout extends AppCompatActivity {
         setData();
     }
 
-    private void getData() {
-        if (getIntent().hasExtra("suibian") && getIntent().hasExtra("suibian2") && getIntent().hasExtra("url")) {
-            ProductDetailsList = getIntent().getStringExtra("suibian");
-            price = getIntent().getStringExtra("suibian2");
-            url = getIntent().getStringExtra("url");
-        }
+        private void getData() {
+            if (getIntent().hasExtra("suibian") && getIntent().hasExtra("suibian2") && getIntent().hasExtra("url")) {
+                ProductDetailsList = getIntent().getStringExtra("suibian");
+                price = getIntent().getStringExtra("suibian2");
+                url = getIntent().getStringExtra("url");
+            }
         else {
             Toast.makeText(this,"No Data", Toast.LENGTH_SHORT).show();
         }

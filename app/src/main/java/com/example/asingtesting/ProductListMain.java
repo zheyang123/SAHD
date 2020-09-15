@@ -27,6 +27,8 @@ import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
+import java.util.ArrayList;
+
 public class ProductListMain extends AppCompatActivity implements View.OnClickListener {
     private static final int Result_Image = 1;
     Uri selected_image;
@@ -37,20 +39,26 @@ public class ProductListMain extends AppCompatActivity implements View.OnClickLi
     double price = 200.00;
     private FirebaseStorage storage;
     private StorageReference storageReference;
-
+ArrayList<String> productlist = new ArrayList<String>();
     ImageView imageView;
     Button button;
+    Button done;
     int camera = R.drawable.camera;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_product_list_main);
+        Bundle bundle = getIntent().getExtras();
+        companyName = bundle.getString("companyname");
+        Toast.makeText(ProductListMain.this, companyName, Toast.LENGTH_LONG).show();
         //Intent intent = new Intent(this,display_product_list.class);
         //startActivity(intent);
+        done = findViewById(R.id.done);
         imageView = (ImageView) findViewById(R.id.image1);
         button = (Button) findViewById(R.id.uploadImage);
         imageView.setOnClickListener(this);
         button.setOnClickListener(this);
+        done.setOnClickListener(this);
         imageView.setImageResource(camera);
         storage = FirebaseStorage.getInstance();
         storageReference = storage.getReference(companyName);
@@ -67,10 +75,16 @@ public class ProductListMain extends AppCompatActivity implements View.OnClickLi
                 EditText p_name;
                 p_name = findViewById(R.id.name);
                 product_name = p_name.getText().toString();
+                productlist.add(product_name);
                 image_name = product_name;
                 Bitmap p_pic = ((BitmapDrawable) imageView.getDrawable()).getBitmap();
                 // Write a message to the database
                 uploadPicture();
+                break;
+            case R.id.done:
+                Intent intent = new Intent(ProductListMain.this, ProductInfo.class);
+                intent.putExtra("companyname", companyName);
+                startActivity(intent);
                 break;
         }
     }
@@ -128,5 +142,10 @@ public class ProductListMain extends AppCompatActivity implements View.OnClickLi
                         PD.setMessage("Progress: " + (int) progressPercentage + "%" );
                     }
                 });
+    }
+    public void done(View view){
+        Intent intent = new Intent(ProductListMain.this, ProductInfo.class);
+        intent.putExtra("companyproduct", productlist);
+        startActivity(intent);
     }
 }

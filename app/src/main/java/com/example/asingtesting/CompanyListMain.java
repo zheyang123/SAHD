@@ -168,6 +168,9 @@ public class CompanyListMain extends AppCompatActivity implements View.OnClickLi
                     FirebaseDatabase database = FirebaseDatabase.getInstance();
                     myRef = database.getReference("company Details");
                     companyRegister = new companyRegisterClass();
+                    Intent intent = new Intent(CompanyListMain.this,ProductListMain.class);
+                    intent.putExtra("companyname", companyname);
+                    startActivity(intent);
                     Toast.makeText(getApplicationContext(),"Register Successfull",Toast.LENGTH_SHORT).show();
                 }else {
                     Toast.makeText(getApplicationContext(),"Register Failed",Toast.LENGTH_SHORT).show();

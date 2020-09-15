@@ -49,9 +49,8 @@ public class CompanyListRecycleView extends RecyclerView.Adapter<CompanyListRecy
             holder.mainLayout.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Intent intent = new Intent(context,SecondActivity.class);
+                    Intent intent = new Intent(context,display_product_list.class);
                     intent.putExtra("CompanyRegisterArray",CompanyRegisterArray.get(position).getCompany_name());
-                    intent.putExtra("url",CompanyRegisterArray.get(position).geturl());
                     //intent.putExtra("MyImg",CompanyRegisterArray.get(position).geturl());
                     context.startActivity(intent);
                 }

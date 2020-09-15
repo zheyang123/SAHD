@@ -15,7 +15,6 @@
         <activity android:name=".ProductListMain"></activity>
         <activity android:name=".Company_Main_Page"></activity>
         <activity android:name=".CompanyListMain"></activity>
-        <activity android:name=".SecondActivity"></activity>
         <activity android:name=".historymain"></activity>
         <activity android:name=".orderdetails" />
         <activity android:name=".ProductDescMain"></activity>

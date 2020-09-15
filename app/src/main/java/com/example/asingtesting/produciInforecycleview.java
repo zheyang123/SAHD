@@ -11,49 +11,49 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
 public class produciInforecycleview extends RecyclerView.Adapter<produciInforecycleview.MyViewHolder> {
 
-        String data1[], data2[];
-        Context context;
+          ArrayList<Product_List_class> pame;
+    Context context;
 
-        public produciInforecycleview (Context ct, String s1[]){
-            context = ct;
-            data1 = s1;
+    public produciInforecycleview (Context ct, ArrayList<Product_List_class> pname){
+        context = ct;
+        this.pame = pname;
+    }
+
+    @NonNull
+    @Override
+    public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        LayoutInflater inflater =LayoutInflater.from(context);
+        View view = inflater.inflate(R.layout.productinfo,parent,false);
+        return new MyViewHolder(view);
+    }
+
+    @Override
+    public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
+        holder.myText1.setText(pame.get(position).getProductName());
+
+    }
+
+    @Override
+    public int getItemCount() {
+        return pame.size();
+    }
+
+    public class MyViewHolder extends RecyclerView.ViewHolder {
+
+        TextView myText1;
+
+        public MyViewHolder(@NonNull View itemView) {
+            super(itemView);
+            myText1 = itemView.findViewById(R.id.product_name);
+
         }
-
-        @NonNull
-        @Override
-        public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-            LayoutInflater inflater =LayoutInflater.from(context);
-            View view = inflater.inflate(R.layout.productinfo,parent,false);
-            return new MyViewHolder(view);
-        }
-
-        @Override
-        public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-            holder.myText1.setText(data1[position]);
-
-        }
-
-        @Override
-        public int getItemCount() {
-            return data1.length;
-        }
-
-        public class MyViewHolder extends RecyclerView.ViewHolder {
-
-            TextView myText1;
-            EditText nameEditText;
-
-            public MyViewHolder(@NonNull View itemView) {
-                super(itemView);
-                myText1 = itemView.findViewById(R.id.product_name);
-
-            }
-        }
+    }
 
 
 }

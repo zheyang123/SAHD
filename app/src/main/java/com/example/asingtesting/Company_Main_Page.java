@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.VoiceInteractor;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.ColorSpace;
@@ -17,6 +18,7 @@ import android.widget.EditText;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -110,4 +112,21 @@ public class Company_Main_Page extends AppCompatActivity {
     myAdapter = new CompanyListRecycleView(this, CompanyRegisterArray,ImgArray);
     recyclerView.setAdapter(myAdapter);
     recyclerView.setLayoutManager(new LinearLayoutManager(this));
-}}
+}
+    public void logout(View view){
+        FirebaseAuth.getInstance().signOut();
+        startActivity(new Intent(getApplicationContext(),MainActivity.class));
+        finish();
+    }
+    public void orderhistory(View view)
+    {
+        Intent intent = new Intent(this,historymain.class);
+        startActivity(intent);
+    }
+    public void registerbusiness(View view)
+    {
+        Intent intent = new Intent(this,CompanyListMain.class);
+        startActivity(intent);
+    }
+    
+}

@@ -1,132 +1,163 @@
 package com.example.asingtesting;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.ProgressDialog;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.drawable.BitmapDrawable;
-import android.net.Uri;
+import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.provider.MediaStore;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.material.snackbar.Snackbar;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.storage.FirebaseStorage;
-import com.google.firebase.storage.OnProgressListener;
-import com.google.firebase.storage.StorageReference;
-import com.google.firebase.storage.UploadTask;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
-private static final int Result_Image = 1;
-Uri selected_image;
-String image_name = "i_name";
-String product_name;
-String url;
-String companyName = "watson";
-double price = 200.00;
-private FirebaseStorage storage;
-private StorageReference storageReference;
+public class MainActivity extends AppCompatActivity {
+    public static final String TAG = "TAG";
+    private EditText Password1,Password2,Password3;
+    private Button login,logout;
+    private Button register;
+    private EditText Email1,Email2;
+    String userID,custemail;
+    FirebaseDatabase database;
+    DatabaseReference myRef;
+    FirebaseAuth mFirebaseAuth;
 
-    ImageView imageView;
-    Button button;
-    int camera = R.drawable.camera;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Intent intent = new Intent(this,Company_Main_Page.class);
-       startActivity(intent);
-        imageView = (ImageView) findViewById(R.id.image1);
-        button = (Button) findViewById(R.id.uploadImage);
-        imageView.setOnClickListener(this);
-        button.setOnClickListener(this);
-        imageView.setImageResource(camera);
-        storage = FirebaseStorage.getInstance();
-        storageReference = storage.getReference(companyName);
-    }
+        mFirebaseAuth = FirebaseAuth.getInstance();
+        Password1 = (EditText) findViewById(R.id.editTextTextPassword);
+        Password2 = (EditText) findViewById(R.id.editTextTextPassword2);
+        Password3 = (EditText) findViewById(R.id.editTextTextPassword3);
+        Email1 = (EditText) findViewById(R.id.editTextTextEmailAddress);
+        Email2 = (EditText) findViewById(R.id.editTextTextEmailAddress2);
+        login = (Button) findViewById(R.id.loginbutton);
+        register = (Button) findViewById(R.id.registerbutton);
+        //SharedPreferences preferences = getSharedPreferences("checkbox", MODE_PRIVATE);
+        //String checkbox = preferences.getString("stayLogged", "");
+        //if (checkbox.equals("false")){
+        // Logout
+        //FirebaseAuth.getInstance().signOut();
+        // Set stay logged checkbox
+        //SharedPreferences.Editor editor = preferences.edit();
+        //editor.putString("stayLogged","true");
+        // editor.apply();
+        //}
+        login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String email = Email1.getText().toString();
+                String pass = Password1.getText().toString();
+                if (email.isEmpty()) {
+                    Email1.setError("Please enter your email!!!!");
+                    Email1.requestFocus();
+                } else if (pass.isEmpty()) {
+                    Password1.setError("Please enter your password!!!!");
+                    Password1.requestFocus();
+                } else {
 
-    @Override
-    public void onClick(View view) {
-        switch(view.getId()) {
-            case R.id.image1:
-                Intent galleryIntent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-                startActivityForResult(galleryIntent, Result_Image);
-                break;
-            case R.id.uploadImage:
-                EditText p_name;
-                p_name = findViewById(R.id.name);
-                product_name = p_name.getText().toString();
-                image_name = product_name;
-                Bitmap p_pic = ((BitmapDrawable) imageView.getDrawable()).getBitmap();
-                // Write a message to the database
-                uploadPicture();
-                break;
-        }
-    }
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode==Result_Image && resultCode==RESULT_OK && data!=null) {
-            selected_image = data.getData();
-            imageView.setImageURI(selected_image);
-        }
-    }
-
-    private void uploadPicture() {
-        final ProgressDialog PD = new ProgressDialog(this);
-        PD.setTitle("Uploading Image...");
-        StorageReference riversRef = storageReference.child(image_name);
-        PD.show();
-
-        riversRef.putFile(selected_image)
-                .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-                    @Override
-                    public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                        PD.dismiss();
-                        Snackbar.make(findViewById(R.id.uploadImage), "Image Uploaded Successfully", Snackbar.LENGTH_LONG).show();
-                        storageReference.child(product_name).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-                            @Override
-                            public void onSuccess(Uri uri) {
-                                url = uri.toString();
-                                Product_List_class PL_class = new Product_List_class();
-                                PL_class.setProduct(url, product_name, price);
-                                FirebaseDatabase database = FirebaseDatabase.getInstance();
-                                DatabaseReference myRef = database.getReference(companyName);
-                                DatabaseReference newRef = myRef.push();
-                                newRef.setValue(PL_class);
+                    mFirebaseAuth.signInWithEmailAndPassword(email, pass).addOnCompleteListener(MainActivity.this, new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+                            if (task.isSuccessful()) {
+                                Intent loginSuccessful = new Intent(MainActivity.this, Company_Main_Page.class);//go item page after login
+                                startActivity(loginSuccessful);
+                                Toast.makeText(MainActivity.this, "Login Successfull!!!", Toast.LENGTH_SHORT).show();
+                            } else {
+                                Toast.makeText(MainActivity.this, "Login Failed!!! " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                                //progressBar.setVisibility(View.GONE);
+                                //bL.setVisibility(View.VISIBLE);
                             }
-                        }).addOnFailureListener(new OnFailureListener() {
-                            @Override
-                            public void onFailure(@NonNull Exception exception) {
-                                Toast.makeText(getApplicationContext(), "Get Image URL Failed", Toast.LENGTH_LONG).show();                            }
-                        });
-                    }
-                })
-                .addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception exception) {
-                        PD.dismiss();
-                        Toast.makeText(getApplicationContext(), "Image Upload Failed", Toast.LENGTH_LONG).show();
-                    }
-                })
-                .addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
-                    @Override
-                    public void onProgress(UploadTask.TaskSnapshot taskSnapshot) {
-                        double progressPercentage = (100.00 * taskSnapshot.getBytesTransferred() / taskSnapshot.getTotalByteCount());
-                        PD.setMessage("Progress: " + (int) progressPercentage + "%" );
-                    }
-                });
+                        }
+                    });
+                }
+            }
+        });
+
+        register.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                custemail=Email2.getText().toString();
+                String pass1=Password2.getText().toString();
+                String pass2=Password3.getText().toString();
+                if(custemail.isEmpty())
+                {Email2.setError("Please enter your phone number!!!!");
+                    Email2.requestFocus();}
+                else if(pass1.isEmpty())
+                {Password2.setError("Please enter your password!!!!");
+                    Password2.requestFocus();}
+                else if(pass2.isEmpty())
+                {Password3.setError("Please enter your password!!!!");
+                    Password3.requestFocus();}
+                else if(!pass1.matches("^[a-zA-Z0-9]*$"))
+                {Password2.setError("Please try another password!!!!");
+                    Password2.requestFocus();}
+                else if(pass1.length() < 6)
+                {Password2.setError("Your password is too short.Please try again!!!!");
+                    Password2.requestFocus();}
+                else if(pass1.length() > 14)
+                {Password2.setError("Your password is too long.Please try again!!!!");
+                    Password2.requestFocus();}
+                else if(!pass1.equals(pass2))
+                {Password3.setError("Your password is not match.Please try again!!!!");
+                    Password3.requestFocus();}
+                else
+                {
+                    mFirebaseAuth.createUserWithEmailAndPassword(custemail,pass1).addOnCompleteListener(MainActivity.this, new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+                            if (!task.isSuccessful()){
+                                Toast.makeText(MainActivity.this,"SignUp Unsuccessful!!! " + task.getException().getMessage(),Toast.LENGTH_SHORT).show();
+                                //progressBar.setVisibility(View.GONE);
+                                //bCA.setVisibility(View.VISIBLE);
+                                //t.setVisibility(View.VISIBLE);
+                                //bSI.setVisibility(View.VISIBLE);
+                            }else{
+                                FirebaseUser fUser = mFirebaseAuth.getCurrentUser();
+                                fUser.sendEmailVerification().addOnSuccessListener(new OnSuccessListener<Void>() {
+                                    @Override
+                                    public void onSuccess(Void aVoid) {
+                                        Toast.makeText(MainActivity.this, "Verification Email Has been Sent.", Toast.LENGTH_SHORT).show();
+                                    }
+                                }).addOnFailureListener(new OnFailureListener() {
+                                    @Override
+                                    public void onFailure(@NonNull Exception e) {
+                                        Log.d(TAG, "onFailure: Email not sent " + e.getMessage());
+                                    }
+                                });
+                                Toast.makeText(MainActivity.this, "User Created.", Toast.LENGTH_SHORT).show();
+                                userID = mFirebaseAuth.getCurrentUser().getUid();
+                                database = FirebaseDatabase.getInstance();
+                                //Write into realtime database
+                                myRef = database.getReference("customer").child(userID);
+
+                                myRef.child("userID").setValue(userID);
+                                myRef.child("email").setValue(custemail);
+
+                            }
+                        }
+                    });
+                    Toast.makeText(MainActivity.this,"Done",Toast.LENGTH_SHORT).show();}
+            }
+        });
+
+
     }
+
+
 }

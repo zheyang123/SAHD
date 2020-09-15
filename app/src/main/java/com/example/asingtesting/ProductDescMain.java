@@ -48,7 +48,7 @@ public class ProductDescMain extends AppCompatActivity implements View.OnClickLi
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == image && resultCode == RESULT_OK && data != null)
         {
-           Uri uri = data.getData();
+            Uri uri = data.getData();
             companyLogo.setImageURI(uri);
         }
     }
@@ -56,10 +56,10 @@ public class ProductDescMain extends AppCompatActivity implements View.OnClickLi
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_product_desc_main);
+        setContentView(R.layout.activity_main);
         int img = R.drawable.camara;
-        /*Intent intent=new Intent(this,Add2Cart.class);
-        startActivity(intent); */
+        Intent intent=new Intent(this,Add2Cart.class);
+        startActivity(intent);
 
 
         //Assign Variable

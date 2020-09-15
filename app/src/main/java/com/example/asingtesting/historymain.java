@@ -23,13 +23,15 @@ public class historymain extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_historymain);
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference myRef = database.getReference("history Details");
+        getSupportActionBar().setTitle("History Details");
         Date date = Calendar.getInstance().getTime();
         double total = 90.00;
         String companyname = "pet city";
         historyDetailsClass userHistory = new historyDetailsClass();
         userHistory.historyDetails(total,date,companyname);
+       //write
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference myRef = database.getReference("history Details");
         DatabaseReference newRef = myRef.push();
         newRef.setValue(userHistory);
 
