@@ -13,6 +13,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".ProductListMain"></activity>
+        <activity android:name=".Company_Main_Page"></activity>
+        <activity android:name=".CompanyListMain"></activity>
+        <activity android:name=".SecondActivity"></activity>
         <activity
             android:name=".display_product_list"
             android:label=""

@@ -45,8 +45,8 @@ private StorageReference storageReference;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Intent intent = new Intent(this,ProductListMain.class);
-        startActivity(intent);
+        Intent intent = new Intent(this,Company_Main_Page.class);
+       startActivity(intent);
         imageView = (ImageView) findViewById(R.id.image1);
         button = (Button) findViewById(R.id.uploadImage);
         imageView.setOnClickListener(this);
