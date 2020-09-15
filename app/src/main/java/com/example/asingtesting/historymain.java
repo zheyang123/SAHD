@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 
@@ -18,15 +17,12 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 
-public class MainActivity extends AppCompatActivity {
+public class historymain extends AppCompatActivity {
     ArrayList<historyDetailsClass> historyArray=new ArrayList<historyDetailsClass>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
-        Intent intent = new Intent(this,historymain.class);
-        startActivity(intent);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_historymain);
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef = database.getReference("history Details");
         Date date = Calendar.getInstance().getTime();
@@ -39,23 +35,23 @@ public class MainActivity extends AppCompatActivity {
 
         //read
         myRef.addListenerForSingleValueEvent(new ValueEventListener() {
-        @Override
-        public void onDataChange(DataSnapshot dataSnapshot) {
-            // This method is called once with the initial value and again
-            // whenever data at this location is updated.
-            for (DataSnapshot datasnapshot1 : dataSnapshot.getChildren()) {
-                historyDetailsClass value = datasnapshot1.getValue(historyDetailsClass.class);
-                historyArray.add(value);
-                runRecycle();
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                // This method is called once with the initial value and again
+                // whenever data at this location is updated.
+                for (DataSnapshot datasnapshot1 : dataSnapshot.getChildren()) {
+                    historyDetailsClass value = datasnapshot1.getValue(historyDetailsClass.class);
+                    historyArray.add(value);
+                    runRecycle();
+                }
             }
-        }
 
-        @Override
-        public void onCancelled(DatabaseError error) {
+            @Override
+            public void onCancelled(DatabaseError error) {
 
-        }
-    });
-}
+            }
+        });
+    }
     void runRecycle()
     {
 
