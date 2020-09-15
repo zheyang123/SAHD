@@ -130,7 +130,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         int img = R.drawable.camara;
         ImgStorage = FirebaseStorage.getInstance();
         ImgRef = ImgStorage.getReference("Company List");
-        Intent intent = new Intent(this,CompanyListMain.class);
+        Intent intent = new Intent(this,Company_Main_Page.class);
         startActivity(intent);
 
 
