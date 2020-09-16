@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".orderdetails">
+    tools:context=".orderdetails"
+    android:background="#87CEEB">
 
     <EditText
         android:id="@+id/editTextTextPersonName4"
@@ -12,7 +13,7 @@
         android:layout_height="61dp"
         android:layout_marginTop="28dp"
         android:ems="10"
-        android:hint="note"
+        android:hint="Note"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.517"
@@ -25,7 +26,7 @@
         android:layout_height="61dp"
         android:layout_marginTop="23dp"
         android:ems="10"
-        android:hint="contact"
+        android:hint="Contact"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.482"
@@ -68,6 +69,7 @@
         android:layout_height="81dp"
         android:text="check out"
         android:onClick="button"
+        android:background="#FFF000"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -78,7 +80,7 @@
         android:layout_height="61dp"
         android:layout_marginTop="80dp"
         android:ems="10"
-        android:hint=" address"
+        android:hint=" Address"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

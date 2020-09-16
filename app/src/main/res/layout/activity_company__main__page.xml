@@ -4,130 +4,138 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#87CEEB"
     tools:context=".Company_Main_Page">
+
+    <TextView
+        android:id="@+id/Search_label"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="15dp"
+        android:gravity="center"
+        android:textColor="#0C0C0C"
+        android:text="Search"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+       />
 
     <EditText
         android:id="@+id/search_Bar"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="20dp"
         android:autofillHints=""
         android:ems="10"
         android:hint="Search"
         android:inputType="textPersonName"
         app:layout_constraintStart_toEndOf="@+id/Search_label"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/CompanyrecyclerView"
-        tools:listitem="@layout/company_list_rv"
-        android:layout_width="410dp"
-        android:layout_height="622dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/search_Bar" />
-
-    <TextView
-        android:id="@+id/Search_label"
-        android:layout_width="46dp"
-        android:layout_height="49dp"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="10dp"
-        android:background="@android:color/white"
-        android:gravity="center"
-        android:text="Search"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <Button
         android:id="@+id/Logout_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="16dp"
-        android:background="@android:color/white"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="10dp"
+        android:background="#FFFF00"
         android:text="Logout"
         android:onClick="logout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/search_Bar"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/button"
-        android:layout_width="67dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="1dp"
-        android:text="@string/myProfileText"
-        android:onClick="myprofile"
-        android:textSize="8sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="580dp"
+        android:orientation="vertical"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="#EE82EE"
+        app:layout_constraintTop_toBottomOf="@id/search_Bar"
+        android:id="@+id/company_main_scroll"
+        >
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/CompanyrecyclerView"
+            tools:listitem="@layout/company_list_rv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+           />
+    </ScrollView>
 
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="67dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="1dp"
-        android:text="@string/orderHistoryText"
-        android:onClick="orderhistory"
-        android:textSize="8sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/button" />
-
-    <Button
-        android:id="@+id/button3"
-        android:layout_width="80dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="1dp"
-        android:text="@string/registerForBuinessText"
-        android:onClick="registerbusiness"
-        android:textSize="8sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/button2" />
-
-    <Button
-        android:id="@+id/button4"
-        android:layout_width="67dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="1dp"
-        android:text="@string/aboutUsText"
-        android:onClick="aboutus"
-        android:textSize="8sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/button3" />
-
-    <Button
-        android:id="@+id/button5"
-        android:layout_width="67dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="1dp"
-        android:text="@string/customerServicesText"
-        android:onClick="customerservices"
-        android:textSize="8sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/button4" />
-
-    <Button
-        android:id="@+id/button6"
-        android:layout_width="57dp"
-        android:layout_height="40dp"
-        android:text="@string/homeText"
-        android:onClick="home"
-        android:textSize="8sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/button5" />
-
-    <TextView
-        android:id="@+id/Divider"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/Divider"
-        android:textColor="@android:color/black"
-        android:textStyle="bold|italic"
-        app:layout_constraintBottom_toTopOf="@+id/button3"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        android:background="#1ABC9C"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="65dp"
+            android:layout_height="65dp"
+            android:layout_marginStart="1dp"
+            android:onClick="myprofile"
+            android:background="@drawable/my_profile"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="65dp"
+            android:layout_height="65dp"
+            android:layout_marginStart="1dp"
+            android:background="@drawable/order_history"
+            android:onClick="orderhistory"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/button" />
+
+        <Button
+            android:id="@+id/button3"
+            android:layout_width="65dp"
+            android:layout_height="65dp"
+            android:layout_marginStart="1dp"
+            android:background="@drawable/regi_for_busi"
+            android:onClick="registerbusiness"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/button2" />
+
+        <Button
+            android:id="@+id/button4"
+            android:layout_width="65dp"
+            android:layout_height="65dp"
+            android:layout_marginStart="1dp"
+            android:background="@drawable/about_us"
+            android:onClick="aboutus"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/button3" />
+
+        <Button
+            android:id="@+id/button5"
+            android:layout_width="65dp"
+            android:layout_height="65dp"
+            android:layout_marginStart="1dp"
+            android:background="@drawable/help"
+            android:onClick="customerservices"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/button4" />
+
+        <Button
+            android:id="@+id/button6"
+            android:layout_width="65dp"
+            android:layout_height="65dp"
+            android:background="@drawable/home"
+            android:onClick="home"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/button5" />
+
+    </LinearLayout>
+
+
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".historymain">
+    tools:context=".historymain"
+    android:background="#87CEEB">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/historyRecycler"
@@ -17,4 +18,72 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:listitem="@layout/history" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#1ABC9C"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="65dp"
+            android:layout_height="65dp"
+            android:layout_marginStart="1dp"
+            android:onClick="myprofile"
+            android:background="@drawable/my_profile"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="65dp"
+            android:layout_height="65dp"
+            android:layout_marginStart="1dp"
+            android:background="@drawable/order_history"
+            android:onClick="orderhistory"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/button" />
+
+        <Button
+            android:id="@+id/button3"
+            android:layout_width="65dp"
+            android:layout_height="65dp"
+            android:layout_marginStart="1dp"
+            android:background="@drawable/regi_for_busi"
+            android:onClick="registerbusiness"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/button2" />
+
+        <Button
+            android:id="@+id/button4"
+            android:layout_width="65dp"
+            android:layout_height="65dp"
+            android:layout_marginStart="1dp"
+            android:background="@drawable/about_us"
+            android:onClick="aboutus"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/button3" />
+
+        <Button
+            android:id="@+id/button5"
+            android:layout_width="65dp"
+            android:layout_height="65dp"
+            android:layout_marginStart="1dp"
+            android:background="@drawable/help"
+            android:onClick="customerservices"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/button4" />
+
+        <Button
+            android:id="@+id/button6"
+            android:layout_width="65dp"
+            android:layout_height="65dp"
+            android:background="@drawable/home"
+            android:onClick="home"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/button5" />
+
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

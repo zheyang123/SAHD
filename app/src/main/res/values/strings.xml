@@ -40,5 +40,5 @@
     <string name="product_name">Set Product Name</string>
     <string name="button_upload">Upload To Server</string>
     <string name="button_done">Done</string>
-
+    <string name="RM">RM:</string>
 </resources>
