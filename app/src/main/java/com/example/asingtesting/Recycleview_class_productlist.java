@@ -52,9 +52,9 @@ public class Recycleview_class_productlist extends RecyclerView.Adapter<Recyclev
               intent.putExtra("companyname", companyname);
                 intent.putExtra("url",ProductDetailsList.get(position).getImage());
                 intent.putExtra("email",email);
-               // Bundle bun=new Bundle();
-               // bun.putDouble("price",ProductInfoList.get(position).getPrice());
-               // intent.putExtras(bun);
+                Bundle bun=new Bundle();
+                bun.putDouble("price",ProductInfoList.get(position).getPrice());
+                intent.putExtras(bun);
                 context.startActivity(intent);
             }
         });

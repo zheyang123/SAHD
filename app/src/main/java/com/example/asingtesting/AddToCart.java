@@ -81,12 +81,12 @@ public class AddToCart extends AppCompatActivity {
     ArrayList<cartclass> cart = new ArrayList<cartclass>();
     public void attocart(View view)
     {
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
+       /* FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef = database.getReference(companyName+" "+email+" cart");
 
         adding.setcart(product_name,price,companyName);
             DatabaseReference newRef = myRef.push();
-            newRef.setValue(adding);
+            newRef.setValue(adding);*/
 
         Intent intent = new Intent(this,display_product_list.class);
         intent.putExtra("email",email);

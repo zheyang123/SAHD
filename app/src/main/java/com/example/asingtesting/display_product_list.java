@@ -30,9 +30,18 @@ public class display_product_list extends AppCompatActivity {
     ArrayList<Product_List_class> PLArray = new ArrayList<Product_List_class>();
     ArrayList<ProductInfoClass> PIArray = new ArrayList<ProductInfoClass>();
     @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        try{
+            super.onRestoreInstanceState(savedInstanceState);
+        }catch (Exception e) {
+            System.out.println("Exce");
+        }
+    }
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_display_product_list);
+
         getData();
         myRef = database.getReference(company_name) ;
         myRef.addListenerForSingleValueEvent(new ValueEventListener() {
