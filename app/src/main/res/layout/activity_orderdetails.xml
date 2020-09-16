@@ -35,7 +35,7 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView20"
         android:layout_width="355dp"
-        android:layout_height="266dp"
+        android:layout_height="250dp"
         android:layout_marginTop="44dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -53,7 +53,7 @@
         app:layout_constraintTop_toBottomOf="@+id/recyclerView20" />
 
     <TextView
-        android:id="@+id/textView9"
+        android:id="@+id/totalprice"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
