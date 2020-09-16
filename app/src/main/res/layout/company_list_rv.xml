@@ -5,7 +5,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="200dp"
-    android:id="@+id/mainLayout">
+    android:id="@+id/mainLayout"
+    android:background="#87CEEB">
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"

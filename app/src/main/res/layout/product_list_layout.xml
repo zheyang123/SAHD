@@ -4,13 +4,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="130dp"
+    android:layout_height="150dp"
     android:id ="@+id/constraintLayout"
     >
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="120dp"
+        android:layout_height="135dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -20,7 +20,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="#87CEEB">
+            android:background="#FFFFFF">
 
             <ImageView
                 android:id="@+id/PD_Pic"
@@ -40,7 +40,7 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:text="TextView"
-                android:textColor="#6A5ACD"
+                android:textColor="#000000"
                 android:textSize="18sp"
                 app:layout_constraintStart_toEndOf="@+id/PD_Pic"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -52,7 +52,7 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:text="@string/RM"
-                android:textColor="#6A5ACD"
+                android:textColor="#000000"
                 android:textSize="18sp"
                 app:layout_constraintStart_toEndOf="@+id/PD_Pic"
                 app:layout_constraintTop_toBottomOf="@+id/PD_Name" />
@@ -64,7 +64,7 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:text="TextView"
-                android:textColor="#6A5ACD"
+                android:textColor="#000000"
                 android:textSize="18sp"
                 app:layout_constraintStart_toEndOf="@+id/PD_RM"
                 app:layout_constraintTop_toBottomOf="@+id/PD_Name" />

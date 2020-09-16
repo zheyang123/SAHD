@@ -18,7 +18,10 @@
             android:id="@+id/logo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/download"></ImageView>
+            android:src="@drawable/logo"
+            android:background="#B02792">
+
+        </ImageView>
 
         <TextView
             android:id="@+id/textView2"
