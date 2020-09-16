@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#87CEEB">
 
     <ImageView
         android:id="@+id/layout2_img"
@@ -20,13 +21,17 @@
 
     <TextView
         android:id="@+id/layout2_price"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="120dp"
+        android:layout_height="29dp"
+        android:layout_marginTop="8dp"
         android:text="TextView"
+        android:textAlignment="center"
+        android:textColor="#6A5ACD"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/layout2_name" />
+        app:layout_constraintTop_toBottomOf="@+id/layout2_name"
+        />
 
     <TextView
         android:id="@+id/layout2_name"
@@ -37,6 +42,7 @@
         android:layout_marginEnd="24dp"
         android:text="TextView"
         android:textAlignment="center"
+        android:textColor="#6A5ACD"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
