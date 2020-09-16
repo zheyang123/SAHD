@@ -11,7 +11,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
+        android:background="#FFD700"
         android:text="@string/button_done"
+        android:textColor="#6A5ACD"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
@@ -34,7 +36,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
+        android:background="#FFD700"
         android:text="@string/button_upload"
+        android:textColor="#6A5ACD"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
@@ -46,10 +50,13 @@
         android:layout_height="42dp"
         android:hint="@string/product_name"
         android:inputType="text"
+        android:textColor="#6A5ACD"
+        android:textColorLink="#9C27B0"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.511"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/image1" />
+        app:layout_constraintTop_toBottomOf="@+id/image1"
+        android:autofillHints="" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

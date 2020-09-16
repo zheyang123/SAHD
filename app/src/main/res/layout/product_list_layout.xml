@@ -25,7 +25,8 @@
                 android:layout_height="120dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:srcCompat="@tools:sample/avatars" />
+                tools:srcCompat="@tools:sample/avatars"
+                android:contentDescription="TODO" />
 
             <TextView
                 android:id="@+id/PD_Name"
@@ -34,17 +35,19 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:text="TextView"
+                android:textColor="#6A5ACD"
                 android:textSize="18sp"
                 app:layout_constraintStart_toEndOf="@+id/PD_Pic"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/textView2"
+                android:id="@+id/PD_RM"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
-                android:text="RM:"
+                android:text="@string/RM"
+                android:textColor="#6A5ACD"
                 android:textSize="18sp"
                 app:layout_constraintStart_toEndOf="@+id/PD_Pic"
                 app:layout_constraintTop_toBottomOf="@+id/PD_Name" />
@@ -56,8 +59,9 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:text="TextView"
+                android:textColor="#6A5ACD"
                 android:textSize="18sp"
-                app:layout_constraintStart_toEndOf="@+id/textView2"
+                app:layout_constraintStart_toEndOf="@+id/PD_RM"
                 app:layout_constraintTop_toBottomOf="@+id/PD_Name" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>

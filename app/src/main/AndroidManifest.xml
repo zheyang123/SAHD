@@ -15,7 +15,7 @@
         <activity android:name=".ProductListMain"></activity>
         <activity
             android:name=".display_product_list"
-            android:label=""
+            android:label="Product Details"
             android:parentActivityName=".product_mini_layout" />
         <activity android:name=".product_mini_layout" />
         <activity android:name=".MainActivity">
