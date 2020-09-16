@@ -39,6 +39,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        //Intent intent = new Intent(this,display_product_list.class);
+        //startActivity(intent);
         mFirebaseAuth = FirebaseAuth.getInstance();
         Password1 = (EditText) findViewById(R.id.editTextTextPassword);
         Password2 = (EditText) findViewById(R.id.editTextTextPassword2);
@@ -60,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String email = Email1.getText().toString();
+                final String email = Email1.getText().toString();
                 String pass = Password1.getText().toString();
                 if (email.isEmpty()) {
                     Email1.setError("Please enter your email!!!!");
@@ -75,6 +77,7 @@ public class MainActivity extends AppCompatActivity {
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if (task.isSuccessful()) {
                                 Intent loginSuccessful = new Intent(MainActivity.this, Company_Main_Page.class);//go item page after login
+                                loginSuccessful.putExtra("email",email);
                                 startActivity(loginSuccessful);
                                 Toast.makeText(MainActivity.this, "Login Successfull!!!", Toast.LENGTH_SHORT).show();
                             } else {

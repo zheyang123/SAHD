@@ -31,7 +31,7 @@ import com.google.firebase.storage.StorageReference;
 import java.util.ArrayList;
 
 public class Company_Main_Page extends AppCompatActivity {
-    String companyname = "SAD";
+    String companyname = "SAD",email;
     ArrayList<Bitmap> ImgArray = new ArrayList<Bitmap>();
     FirebaseDatabase database = FirebaseDatabase.getInstance();
     DatabaseReference myRef = database.getReference("company Details");
@@ -46,6 +46,7 @@ public class Company_Main_Page extends AppCompatActivity {
         setContentView(R.layout.activity_company__main__page);
         super.onCreate(savedInstanceState);
         EditText editText = findViewById(R.id.search_Bar);
+        email = getIntent().getStringExtra("email");
         editText.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2)
@@ -72,22 +73,6 @@ public class Company_Main_Page extends AppCompatActivity {
                     companyRegisterClass value = datasnapshot1.getValue(companyRegisterClass.class);
                     CompanyRegisterArray.add(value);
                 }
-                for (int i = 0;i<CompanyRegisterArray.size();i++)
-                {
-                    StorageReference ImgRef = ComImg.getReference().child("Company List").child(CompanyRegisterArray.get(i).getCompany_name());
-                    ImgRef.getBytes(1024 * 1024).addOnSuccessListener(new OnSuccessListener<byte[]>() {
-                        @Override
-                        public void onSuccess(byte[] bytes) {
-                            Bitmap bitmap = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
-                            ImgArray.add(bitmap);
-                        }
-                    }).addOnFailureListener(new OnFailureListener() {
-                        @Override
-                        public void onFailure(@NonNull Exception exception) {
-                            // Handle failed download
-                        }
-                    });
-                }
                 CompanyrecyclerView();
             }
             @Override
@@ -109,7 +94,7 @@ public class Company_Main_Page extends AppCompatActivity {
     }
     void CompanyrecyclerView() {
     recyclerView = findViewById(R.id.CompanyrecyclerView);
-    myAdapter = new CompanyListRecycleView(this, CompanyRegisterArray,ImgArray);
+    myAdapter = new CompanyListRecycleView(this, CompanyRegisterArray,email);
     recyclerView.setAdapter(myAdapter);
     recyclerView.setLayoutManager(new LinearLayoutManager(this));
 }
@@ -121,6 +106,7 @@ public class Company_Main_Page extends AppCompatActivity {
     public void orderhistory(View view)
     {
         Intent intent = new Intent(this,historymain.class);
+        intent.putExtra("email",email);
         startActivity(intent);
     }
     public void registerbusiness(View view)

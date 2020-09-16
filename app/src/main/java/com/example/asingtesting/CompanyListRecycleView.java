@@ -28,10 +28,12 @@ public class CompanyListRecycleView extends RecyclerView.Adapter<CompanyListRecy
     Context context;
         List<companyRegisterClass> CompanyRegisterArray;
         ArrayList <Bitmap> bitmaps;
-        public CompanyListRecycleView (Context ct, List<companyRegisterClass> CompanyArray,ArrayList<Bitmap> bitmaps){
+        String email;
+        public CompanyListRecycleView (Context ct, List<companyRegisterClass> CompanyArray,String email){
             this.context = ct;
             this.CompanyRegisterArray = CompanyArray;
             this.bitmaps = bitmaps;
+            this.email=email;
         }
 
         @Override
@@ -50,7 +52,8 @@ public class CompanyListRecycleView extends RecyclerView.Adapter<CompanyListRecy
                 @Override
                 public void onClick(View view) {
                     Intent intent = new Intent(context,display_product_list.class);
-                    intent.putExtra("CompanyRegisterArray",CompanyRegisterArray.get(position).getCompany_name());
+                    intent.putExtra("companyname",CompanyRegisterArray.get(position).getCompany_name());
+                    intent.putExtra("email",email);
                     //intent.putExtra("MyImg",CompanyRegisterArray.get(position).geturl());
                     context.startActivity(intent);
                 }

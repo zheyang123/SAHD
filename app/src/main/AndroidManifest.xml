@@ -12,19 +12,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ProductListMain"></activity>
-        <activity android:name=".Company_Main_Page"></activity>
-        <activity android:name=".CompanyListMain"></activity>
-        <activity android:name=".historymain"></activity>
+        <activity android:name=".AddToCart"></activity>
+        <activity android:name=".getProductInfo" />
+        <activity android:name=".ProductListMain" />
+        <activity android:name=".Company_Main_Page" />
+        <activity android:name=".CompanyListMain" />
+        <activity android:name=".historymain" />
         <activity android:name=".orderdetails" />
-        <activity android:name=".ProductDescMain"></activity>
-        <activity android:name=".Add2Cart" />
-        <activity android:name=".ProductInfo" />
-        <activity
-            android:name=".display_product_list"
-            android:label=""
-            android:parentActivityName=".product_mini_layout" />
-        <activity android:name=".product_mini_layout" />
+        <activity android:name=".display_product_list" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

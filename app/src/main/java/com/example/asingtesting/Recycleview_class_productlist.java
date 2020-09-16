@@ -2,6 +2,7 @@ package com.example.asingtesting;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,9 +20,16 @@ import java.util.List;
 public class Recycleview_class_productlist extends RecyclerView.Adapter<Recycleview_class_productlist.MyViewHolder> {
     Context context;
     List<Product_List_class> ProductDetailsList;
-    public Recycleview_class_productlist (Context ct, List<Product_List_class> historyDetailsList){
+    List<ProductInfoClass> ProductInfoList;
+   String email;
+    String companyname;
+    public Recycleview_class_productlist (Context ct, List<Product_List_class> historyDetailsList,List<ProductInfoClass> ProductInfoList,
+                                          String companyname,String email){
         this.context = ct;
         this.ProductDetailsList= historyDetailsList;
+        this.ProductInfoList=ProductInfoList;
+        this.companyname=companyname;
+        this.email = email;
     }
 
     @Override
@@ -34,15 +42,19 @@ public class Recycleview_class_productlist extends RecyclerView.Adapter<Recyclev
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, final int position) {
         holder.myText1.setText(ProductDetailsList.get(position).getProductName());
-        holder.myText2.setText(String.valueOf(ProductDetailsList.get(position).getPrice()));
+        holder.myText2.setText(String.valueOf(ProductInfoList.get(position).getPrice()));
         Picasso.get().load(ProductDetailsList.get(position).getImage()).into(holder.imageView);
         holder.constraintLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(context, product_mini_layout.class);
-                intent.putExtra("suibian", ProductDetailsList.get(position).getProductName());
-                intent.putExtra("suibian2", (String.valueOf(ProductDetailsList.get(position).getPrice())));
+                Intent intent = new Intent(context, AddToCart.class);
+               intent.putExtra("productname", ProductDetailsList.get(position).getProductName());
+              intent.putExtra("companyname", companyname);
                 intent.putExtra("url",ProductDetailsList.get(position).getImage());
+                intent.putExtra("email",email);
+               // Bundle bun=new Bundle();
+               // bun.putDouble("price",ProductInfoList.get(position).getPrice());
+               // intent.putExtras(bun);
                 context.startActivity(intent);
             }
         });
