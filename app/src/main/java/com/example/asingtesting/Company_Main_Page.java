@@ -107,7 +107,7 @@ public class Company_Main_Page extends AppCompatActivity {
     {
         Intent intent = new Intent(this,historymain.class);
         intent.putExtra("email",email);
-        finish();
+
         startActivity(intent);
     }
     public void registerbusiness(View view)
