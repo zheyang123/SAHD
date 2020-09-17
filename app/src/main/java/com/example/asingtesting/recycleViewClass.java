@@ -16,6 +16,7 @@ import java.util.List;
 
 public class recycleViewClass extends RecyclerView.Adapter<recycleViewClass.MyViewHolder> {
     Context context;
+    String date[];
     List<historyDetailsClass> historyDetailsList;
     public recycleViewClass (Context ct, List<historyDetailsClass> historyDetailsList){
         this.context = ct;
@@ -35,7 +36,7 @@ public class recycleViewClass extends RecyclerView.Adapter<recycleViewClass.MyVi
         //String price =new double(historyDetailsList.get(position).getTotalprice.toString);
         holder.myText1.setText(historyDetailsList.get(position).getCompanyName());
         holder.myText2.setText(historyDetailsList.get(position).getOrderDate().toString());
-        holder.myText3.setText(String.valueOf( historyDetailsList.get(position).getTotalprice()));
+        holder.myText3.setText(String.valueOf( historyDetailsList.get(position).getTotalprice()).replace("GMT+00:00","/"));
 
     }
 

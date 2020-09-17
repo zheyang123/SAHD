@@ -31,13 +31,15 @@ public class historymain extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_historymain);
         getData();
-        id = email.replace("@", "0");
-        id = id.replace(".", "0");
+
         getSupportActionBar().setTitle("History Details");
         Date date = Calendar.getInstance().getTime();
+        id = email.replace("@", "0");
+        id = id.replace(".", "0");
        // historyDetailsClass userHistory = new historyDetailsClass();
         //userHistory.historyDetails(total, date, companyname);
         //write
+
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef = database.getReference("history Details/" + id);
 
@@ -112,7 +114,7 @@ public class historymain extends AppCompatActivity {
     }
     public void myprofile(View view)
     {
-        Intent intent = new Intent(this,customerservices.class);
+        Intent intent = new Intent(this,profile.class);
         intent.putExtra("email",email);
         startActivity(intent);
     }

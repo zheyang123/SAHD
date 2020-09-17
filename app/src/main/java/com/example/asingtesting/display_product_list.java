@@ -107,5 +107,6 @@ public class display_product_list extends AppCompatActivity {
         intent.putExtra("email",email);
         intent.putExtra("companyname",company_name);
         startActivity(intent);
+        this.finish();
     }
 }

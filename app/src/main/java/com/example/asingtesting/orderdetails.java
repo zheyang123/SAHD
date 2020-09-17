@@ -70,6 +70,7 @@ String email,id,companyName;
     {
         Date date = Calendar.getInstance().getTime();
 
+
         historyDetailsClass userHistory = new historyDetailsClass();
         userHistory.historyDetails(total,date,companyName);
         //write
@@ -84,7 +85,6 @@ String email,id,companyName;
         intent.putExtra("email",email);
         finish();
         startActivity(intent);
-
     }
     private void getData() {
         if (getIntent().hasExtra("companyname")) {
