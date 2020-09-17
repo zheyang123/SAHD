@@ -17,7 +17,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="#E02BFF">
+            android:background="#CCFF33">
 
             <TextView
                 android:id="@+id/name"
@@ -55,6 +55,7 @@
                 android:layout_width="55dp"
                 android:layout_height="51dp"
                 android:text="x"
+                android:background="#FF6374"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />

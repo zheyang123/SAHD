@@ -20,7 +20,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.517"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName3" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName3"
+        app:layout_constraintVertical_bias="0.0" />
 
     <EditText
         android:id="@+id/editTextTextPersonName3"
@@ -40,8 +41,9 @@
         android:layout_width="355dp"
         android:layout_height="250dp"
         android:layout_marginTop="44dp"
-        android:background="#E02BFF"
+        android:background="#CCFF33"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.535"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -51,6 +53,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="200dp"
         android:text="Total: "
+        android:textColor="#000000"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/recyclerView20" />
@@ -60,6 +63,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="TextView"
+        android:gravity="right"
+        android:textAlignment="gravity"
+        android:textColor="#000000"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="@+id/recyclerView20"
         app:layout_constraintStart_toEndOf="@+id/textView8"
@@ -83,6 +89,7 @@
         android:layout_marginTop="80dp"
         android:ems="10"
         android:hint=" Address"
+        android:textColor="#000000"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
