@@ -5,7 +5,8 @@
     android:id="@+id/phoneNumberedit"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".edidtprofile">
+    tools:context=".edidtprofile"
+    android:background="#87CEEB">
 
     <EditText
         android:id="@+id/nameedidt"
@@ -33,6 +34,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
         android:text="Done"
+        android:background="#FF6374"
         android:onClick="edit"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/phoneNum" />

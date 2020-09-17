@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".profile">
+    tools:context=".profile"
+    android:background="#87CEEB">
 
     <TextView
         android:id="@+id/email"
@@ -18,6 +19,8 @@
         android:layout_width="187dp"
         android:layout_height="61dp"
         android:text="phoneNumber"
+        android:background="@drawable/border"
+        android:backgroundTint="#CCFF33"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/username" />
 
@@ -96,6 +99,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="37dp"
         android:text="edit"
+        android:background="#FF6374"
         android:onClick="edit"
         app:layout_constraintBottom_toBottomOf="@+id/username"
         app:layout_constraintStart_toEndOf="@+id/username" />
@@ -107,6 +111,8 @@
         android:layout_marginStart="3dp"
         android:layout_marginTop="97dp"
         android:text="user"
+        android:backgroundTint="#CCFF33"
+        android:background="@drawable/border"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
