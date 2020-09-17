@@ -41,4 +41,6 @@
     <string name="button_upload">Upload To Server</string>
     <string name="button_done">Done</string>
     <string name="RM">RM:</string>
+    <string name="aboutus"><b><u>About Us</u></b></string>
+    <string name="contactus"><b><u>Contact Us</u></b></string>
 </resources>

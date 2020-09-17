@@ -22,6 +22,7 @@ String email,id;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
+        getSupportActionBar().setTitle("My Profile");
         email = getIntent().getStringExtra("email");
         id = email.replace("@", "0");
         id = id.replace(".", "0");

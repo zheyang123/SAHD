@@ -23,19 +23,27 @@
 
     <TextView
         android:id="@+id/pdnametext"
-        android:layout_width="314dp"
-        android:layout_height="61dp"
+        android:layout_width="322dp"
+        android:layout_height="63dp"
+        android:background="#CCFF33"
+        android:gravity="center"
         android:text="TextView"
+        android:textAlignment="center"
+        android:textColor="#000000"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/pdimage" />
 
     <TextView
         android:id="@+id/dectext"
-        android:layout_width="366dp"
-        android:layout_height="135dp"
-        android:layout_marginStart="24dp"
+        android:layout_width="322dp"
+        android:layout_height="63dp"
+        android:background="#CCFF33"
+        android:gravity="center"
         android:text="TextView"
+        android:textAlignment="center"
+        android:textColor="#000000"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/pdnametext" />
 
@@ -52,13 +60,17 @@
 
     <EditText
         android:id="@+id/editTextTextPersonName2"
-        android:layout_width="370dp"
-        android:layout_height="157dp"
-        android:layout_marginStart="20dp"
+        android:layout_width="406dp"
+        android:layout_height="196dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:background="@drawable/border"
         android:ems="10"
         android:hint="Remark"
         android:inputType="textPersonName"
+        android:textColor="#000000"
         app:layout_constraintBottom_toTopOf="@+id/button7"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/dectext" />
 </androidx.constraintlayout.widget.ConstraintLayout>

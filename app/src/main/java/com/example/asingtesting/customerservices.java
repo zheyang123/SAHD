@@ -14,6 +14,7 @@ String email;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_customerservices);
+        getSupportActionBar().setTitle("Customer Service");
         email = getIntent().getStringExtra("email");
     }
 
