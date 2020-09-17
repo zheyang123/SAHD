@@ -22,6 +22,7 @@ import com.basgeekball.awesomevalidation.utility.RegexTemplate;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.snackbar.Snackbar;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
@@ -40,7 +41,7 @@ public class CompanyListMain extends AppCompatActivity implements View.OnClickLi
     Uri uri;
     StorageReference ImgRef;
     FirebaseStorage ImgStorage;
-    String companyname = "defualt";
+    String companyname = "defualt",email;
     String url;
     String companyaddress,companytype,companyemail,companyoperatinghour,companyworkingdate;
     companyRegisterClass companyRegister;
@@ -122,7 +123,7 @@ public class CompanyListMain extends AppCompatActivity implements View.OnClickLi
         int img = R.drawable.camara;
         ImgStorage = FirebaseStorage.getInstance();
         ImgRef = ImgStorage.getReference("Company List");
-
+        email = getIntent().getStringExtra("email");
 
 
         //Assign Variable
@@ -181,5 +182,42 @@ public class CompanyListMain extends AppCompatActivity implements View.OnClickLi
 
     }
 
+    public void orderhistory(View view)
+    {
+        Intent intent = new Intent(this,historymain.class);
+        intent.putExtra("email",email);
+
+        startActivity(intent);
+    }
+    public void registerbusiness(View view)
+    {
+        Intent intent = new Intent(this,CompanyListMain.class);
+        intent.putExtra("email",email);
+        startActivity(intent);
+    }
+    public void home(View view)
+    {
+        Intent intent = new Intent(this,Company_Main_Page.class);
+        intent.putExtra("email",email);
+        startActivity(intent);
+    }
+    public void aboutus(View view)
+    {
+        Intent intent = new Intent(this,aboutus.class);
+        intent.putExtra("email",email);
+        startActivity(intent);
+    }
+    public void customerservices(View view)
+    {
+        Intent intent = new Intent(this,customerservices.class);
+        intent.putExtra("email",email);
+        startActivity(intent);
+    }
+    public void myprofile(View view)
+    {
+        Intent intent = new Intent(this,profile.class);
+        intent.putExtra("email",email);
+        startActivity(intent);
+    }
 
 }

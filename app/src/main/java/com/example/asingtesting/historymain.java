@@ -4,10 +4,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -74,5 +77,43 @@ public class historymain extends AppCompatActivity {
         } else {
             Toast.makeText(historymain.this, "No Data", Toast.LENGTH_SHORT).show();
         }
+    }
+
+
+    public void orderhistory(View view)
+    {
+        Intent intent = new Intent(this,historymain.class);
+        intent.putExtra("email",email);
+        startActivity(intent);
+    }
+    public void registerbusiness(View view)
+    {
+        Intent intent = new Intent(this,CompanyListMain.class);
+        intent.putExtra("email",email);
+        startActivity(intent);
+    }
+    public void home(View view)
+    {
+        Intent intent = new Intent(this,Company_Main_Page.class);
+        intent.putExtra("email",email);
+        startActivity(intent);
+    }
+    public void aboutus(View view)
+    {
+        Intent intent = new Intent(this,aboutus.class);
+        intent.putExtra("email",email);
+        startActivity(intent);
+    }
+    public void customerservices(View view)
+    {
+        Intent intent = new Intent(this,customerservices.class);
+        intent.putExtra("email",email);
+        startActivity(intent);
+    }
+    public void myprofile(View view)
+    {
+        Intent intent = new Intent(this,customerservices.class);
+        intent.putExtra("email",email);
+        startActivity(intent);
     }
 }

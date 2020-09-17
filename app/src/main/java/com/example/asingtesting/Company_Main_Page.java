@@ -107,13 +107,36 @@ public class Company_Main_Page extends AppCompatActivity {
     {
         Intent intent = new Intent(this,historymain.class);
         intent.putExtra("email",email);
-
         startActivity(intent);
     }
     public void registerbusiness(View view)
     {
         Intent intent = new Intent(this,CompanyListMain.class);
+        intent.putExtra("email",email);
         startActivity(intent);
     }
-    
+    public void home(View view)
+    {
+        Intent intent = new Intent(this,Company_Main_Page.class);
+        intent.putExtra("email",email);
+        startActivity(intent);
+    }
+    public void aboutus(View view)
+    {
+        Intent intent = new Intent(this,aboutus.class);
+        intent.putExtra("email",email);
+        startActivity(intent);
+    }
+    public void customerservices(View view)
+    {
+        Intent intent = new Intent(this,customerservices.class);
+        intent.putExtra("email",email);
+        startActivity(intent);
+    }
+    public void myprofile(View view)
+    {
+        Intent intent = new Intent(this,profile.class);
+        intent.putExtra("email",email);
+        startActivity(intent);
+    }
 }

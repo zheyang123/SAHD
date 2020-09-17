@@ -46,14 +46,15 @@
                 android:text="@string/Email"
                 android:textSize="24sp"
                 />
+
             <EditText
                 android:id="@+id/editTextTextEmailAddress"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:hint="example12@gmail.com"
-                android:inputType="textEmailAddress"
-                />
+                android:inputType="textEmailAddress" />
+
             <TextView
                 android:id="@+id/textView3"
                 android:layout_width="match_parent"

@@ -2,10 +2,11 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cartlayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".orderdetails"
-    android:background="#87CEEB">
+    android:background="#87CEEB"
+    tools:context=".orderdetails">
 
     <EditText
         android:id="@+id/editTextTextPersonName4"
@@ -15,6 +16,7 @@
         android:ems="10"
         android:hint="Note"
         android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/button9"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.517"
         app:layout_constraintStart_toStartOf="parent"
@@ -38,6 +40,7 @@
         android:layout_width="355dp"
         android:layout_height="250dp"
         android:layout_marginTop="44dp"
+        android:background="#E02BFF"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -47,7 +50,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="200dp"
-        android:layout_marginTop="16dp"
         android:text="Total: "
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
@@ -57,9 +59,9 @@
         android:id="@+id/totalprice"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
         android:text="TextView"
         android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="@+id/recyclerView20"
         app:layout_constraintStart_toEndOf="@+id/textView8"
         app:layout_constraintTop_toBottomOf="@+id/recyclerView20" />
 
@@ -67,9 +69,9 @@
         android:id="@+id/button9"
         android:layout_width="0dp"
         android:layout_height="81dp"
-        android:text="check out"
-        android:onClick="button"
         android:background="#FFF000"
+        android:onClick="button"
+        android:text="check out"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

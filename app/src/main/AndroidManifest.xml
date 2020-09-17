@@ -12,25 +12,36 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".AddToCart"
-            android:label="Add To Cart"/>
-        <activity android:name=".getProductInfo"
-            android:label="Product Info"/>
-        <activity android:name=".ProductListMain"
+        <activity android:name=".profile"></activity>
+        <activity android:name=".customerservices" />
+        <activity android:name=".aboutus" />
+        <activity
+            android:name=".AddToCart"
+            android:label="Add To Cart" />
+        <activity
+            android:name=".getProductInfo"
+            android:label="Product Info" />
+        <activity
+            android:name=".ProductListMain"
             android:label="Product List"
             android:parentActivityName=".display_product_list" />
-        <activity android:name=".Company_Main_Page"
-            android:label="Main Page"/>
-        <activity android:name=".CompanyListMain"
-            android:label="Company Register"/>
-        <activity android:name=".historymain"
-            android:label="Order History"/>
-        <activity android:name=".orderdetails"
-            android:label="Order Detail"/>
-        <activity android:name=".display_product_list"
-            android:label="Product List"/>
+        <activity
+            android:name=".Company_Main_Page"
+            android:label="Main Page" />
+        <activity
+            android:name=".CompanyListMain"
+            android:label="Company Register" />
+        <activity
+            android:name=".historymain"
+            android:label="Order History" />
+        <activity
+            android:name=".orderdetails"
+            android:label="Order Detail"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".display_product_list"
+            android:label="Product List" />
         <activity android:name=".MainActivity">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

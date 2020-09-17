@@ -94,6 +94,7 @@ public class AddToCart extends AppCompatActivity {
         intent.putExtra("email",email);
         intent.putExtra("companyname",companyName);
         startActivity(intent);
+        finish();
     }
 
 }

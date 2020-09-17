@@ -62,7 +62,7 @@ String email,id,companyName;
 
         RecyclerView recyclerView;
         recyclerView = findViewById(R.id.recyclerView20);
-        myAdapter = new cartView( this, cart);
+        myAdapter = new cartView( this, cart,companyName,email);
         recyclerView.setAdapter(myAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
     }
